@@ -18,12 +18,12 @@ export default defineConfig({
         },
         {
           path: '/be',
-          title: '后端BE'
+          title: '后端BE',
         },
         {
           path: '/normal',
-          title: '通用内功'
-        }
+          title: '通用内功',
+        },
       ],
     },
     {
@@ -36,7 +36,7 @@ export default defineConfig({
     },
     {
       title: '俺',
-      path: '/about'
+      path: '/about',
     },
     {
       title: 'Github',
@@ -44,4 +44,5 @@ export default defineConfig({
     },
   ],
   favicon: '/favicon.ico',
+  base: '/new-blog',
 });
