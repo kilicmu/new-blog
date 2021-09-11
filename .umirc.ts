@@ -35,6 +35,10 @@ export default defineConfig({
       path: '/friends',
     },
     {
+      title: 'ECMA262',
+      path: '/ecma262',
+    },
+    {
       title: '俺',
       path: '/about',
     },
@@ -45,5 +49,5 @@ export default defineConfig({
   ],
   favicon: '/favicon.ico',
   base: '/new-blog',
-  publicPath: './'
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
 });

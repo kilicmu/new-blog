@@ -2,8 +2,8 @@
   "private": true,
   "name": "dumi-app",
   "scripts": {
-    "start": "dumi dev",
-    "build": "dumi build",
+    "start": "cross-env NODE_ENV=development && dumi dev",
+    "build": "cross-env NODE_ENV=production && dumi build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
   },
   "main": "dist/index.js",
@@ -21,6 +21,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dumi": "^1.0.13",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
