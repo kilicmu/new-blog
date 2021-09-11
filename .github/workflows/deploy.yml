@@ -40,7 +40,7 @@ jobs:
       uses: NickSchimek/deploy_jamstack_action@v1
       with:
          build-dir: dist
-         github-token: ${{ github.ACCESS_TOKEN }}
+         github-token: ${{ secrets.ACCESS_TOKEN }}
          github-actor: ${{ github.actor }}
          github-repo: kilicmu/new-blog
 
