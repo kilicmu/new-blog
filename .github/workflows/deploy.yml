@@ -1,0 +1,48 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.
+# For more information see: https://github.com/denolib/setup-deno
+
+name: release blog to hefeng6500.github.io
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
+
+    strategy:
+      matrix:
+        node: [12]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 15.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 15.x
+
+    - name: yarn install, build
+      run: |
+        yarn
+        yarn build
+    - name: Deploy Site
+  # You may pin to the exact commit or the version.
+  # uses: NickSchimek/deploy_jamstack_action@3ee9f2f407720678a67f8673712e9a37519ecfe2
+      uses: NickSchimek/deploy_jamstack_action@v1
+      with:
+         build-dir: dist
+         github-token: ${{ github.ACCESS_TOKEN }}
+         github-actor: ${{ github.actor }}
+         github-repo: kilicmu/new-blog
+
+      env:
+        CI: true
