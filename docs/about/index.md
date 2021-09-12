@@ -72,7 +72,7 @@ toc: menu
 
 <img src="https://cdn.jsdelivr.net/gh/kilicmu/markdown-images@master//image/71631382834_.pic.jpg" width="350px" />
 
-头像是俺男神，如果喜欢小弟的内容就请小弟弟我喝杯咖啡呗🥺~
+如果喜欢小弟的内容就请小弟弟我喝杯咖啡呗🥺~
 
 ## 想骂你咋整🤬？
 

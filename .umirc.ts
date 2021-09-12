@@ -47,7 +47,7 @@ export default defineConfig({
       path: 'https://github.com/kilicmu',
     },
   ],
-  favicon: '/favicon.ico',
+  favicon: './favicon.ico',
   base: '/new-blog',
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
 });
