@@ -21,10 +21,16 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.14",
     "cross-env": "^7.0.3",
     "dumi": "^1.0.13",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "styled-component": "^2.8.0",
+    "styled-components": "^5.3.1"
   }
 }
