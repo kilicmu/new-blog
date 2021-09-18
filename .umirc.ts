@@ -39,6 +39,10 @@ export default defineConfig({
       path: '/ecma262',
     },
     {
+      title: '工具使用',
+      path: '/tools',
+    },
+    {
       title: '俺',
       path: '/about',
     },
