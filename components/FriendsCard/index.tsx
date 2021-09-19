@@ -11,8 +11,8 @@ export const Card = styled.div`
   border: 2px solid rgba(0, 0, 0, 0.04);
   border-radius: 5px;
   transition: box-shadow .4s;
+  padding: 20px;
   &: hover {
-      cursor: pointer;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
   }
 `;
@@ -23,17 +23,22 @@ export const Container = styled.div`
   display: flex;
 `;
 
+const headerStyle = {
+  justifyContent: 'space-between',
+  display: 'flex',
+};
+
 const Header = ({title, time}: PropsWithoutRef<{title: string, time: number}>) => {
     return (
-      <div>
+      <div style={headerStyle}>
         <h2>{title}</h2>
-        <p>{dayjs(time).format('YYYY年MM月DD日 hh:mm:ss')}</p>
+        <p style={{fontSize: '10px', color: 'gray', fontStyle: 'italic'}}>{dayjs(time).format('YYYY年MM月DD日 hh:mm:ss')}</p>
       </div>
     );
 }
 
 const Content = ({body}: PropsWithoutRef<{body: string}>) => {
-    return <span>{body}</span>
+    return <span style={{color: 'gray'}}>{body}</span>
 }
 
 const Center = styled.div`
@@ -49,7 +54,6 @@ const ImagePreview = ({
   visitable,
   close,
 }: PropsWithoutRef<{ url: string; visitable: boolean, close: (e: any) => void }>) => {
-    console.log(visitable)
   return (
     <div
       style={{
@@ -67,7 +71,7 @@ const ImagePreview = ({
       <Center>
         <img
           src={url}
-          style={{ width: '80vw', height: '80vw', objectFit: 'cover' }}
+          style={{ width: '100vmin', objectFit: 'cover' }}
         ></img>
       </Center>
     </div>
@@ -82,13 +86,37 @@ const ImagesWall = ({ imgUrls }: PropsWithoutRef<{ imgUrls: string[] }>) => {
         setPreviewVisitable(true);
     }, []);
   return (
-    <div>
-      <ImagePreview url={previewUrl} visitable={previewVisitable} close={(e: any) => {setPreviewVisitable(false)}}/>  
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+        gap: '10px',
+      }}
+    >
+      <ImagePreview
+        url={previewUrl}
+        visitable={previewVisitable}
+        close={(e: any) => {
+          setPreviewVisitable(false);
+        }}
+      />
       {imgUrls.map((url) => (
-        <img src={url} width="100px" height="100px" style={{objectFit: 'cover'}} onClick={() => openPreview(url)}></img>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <img
+            src={url}
+            width="100px"
+            height="100px"
+            style={{
+              objectFit: 'contain',
+              border: '1px solid gray',
+              cursor: 'pointer',
+            }}
+            onClick={() => openPreview(url)}
+          ></img>
+        </div>
       ))}
-    </div>)
-  ;
+    </div>
+  );
 };
 
 
@@ -110,7 +138,10 @@ export const FriendsCard = (props: PropsWithoutRef<FriendsCardProps>) => {
     <Container>
       <Card>
         <Header title={title} time={time} />
-        <Content body={body} />
+        <div style={{ padding: '8px 0 20px 0' }}>
+          <Content body={body} />
+        </div>
+
         <ImagesWall imgUrls={imgUrls} />
       </Card>
     </Container>

@@ -6,7 +6,7 @@ export default defineConfig({
   logo: 'https://cdn.jsdelivr.net/gh/kilicmu/markdown-images@master//image/—Pngtree—small animal rabbit head_5421523.png',
   navs: [
     {
-      title: '读书笔记',
+      title: '多通道记录',
       children: [
         {
           title: '个人成长',
@@ -24,6 +24,10 @@ export default defineConfig({
           path: '/normal',
           title: '通用内功',
         },
+        {
+          path: '/block-chain',
+          title: '区块链',
+        }
       ],
     },
     {
@@ -31,7 +35,7 @@ export default defineConfig({
       path: '/talks',
     },
     {
-      title: '朋友圈',
+      title: '胖友圈',
       path: '/friends',
     },
     {
@@ -41,6 +45,10 @@ export default defineConfig({
     {
       title: '工具使用',
       path: '/tools',
+    },
+    {
+      title: '读书笔记',
+      path: '/books'
     },
     {
       title: '俺',
