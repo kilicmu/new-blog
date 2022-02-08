@@ -51,6 +51,19 @@ export default defineConfig({
       path: '/books'
     },
     {
+      title: '刷题',
+      children: [
+        {
+          title: '刷题日记',
+          path: '/leetcode'
+        },
+        {
+          title: '贪心系列',
+          path: '/leetcode/greedy'
+        }
+      ]
+    },
+    {
       title: '俺',
       path: '/about',
     },
