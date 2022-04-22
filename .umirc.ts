@@ -35,10 +35,6 @@ export default defineConfig({
       path: '/talks',
     },
     {
-      title: '胖友圈',
-      path: '/friends',
-    },
-    {
       title: 'ECMA262',
       path: '/ecma262',
     },
