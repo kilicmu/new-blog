@@ -27,8 +27,8 @@ https://leetcode-cn.com/problems/uOAnQW
 
 提示：
 
-* 1 <= cnt <= cards.length <= 10^5
-* 1 <= cards[i] <= 1000
+- 1 <= cnt <= cards.length <= 10^5
+- 1 <= cards[i] <= 1000
 
 ### 思路
 
@@ -37,7 +37,7 @@ https://leetcode-cn.com/problems/uOAnQW
 1. 将 cards 给出的数字降序排序，取到最大的 cnt 个数字。
 2. 若 此 cnt 个数字的和为偶数，则直接返回运算结果。
 3. 若 此 cnt 个数字的和为奇数，循环取第 cnt + n 大的数字。
-4. 若 cnt + n 大的数字为奇数，则将其替换为已选 cnt 个数字中最小偶数。cnt + n大的数字为偶数，相反。
+4. 若 cnt + n 大的数字为奇数，则将其替换为已选 cnt 个数字中最小偶数。cnt + n 大的数字为偶数，相反。
 5. 若 cnt + n > cards.length 仍不存在可替换数字，则返回 0。
 
 ### 代码
@@ -46,32 +46,31 @@ TS:
 
 ```ts
 function maxmiumScore(cards: number[], cnt: number): number {
-    cards = cards.sort((a, b) => b - a)
-    const tmpSelected = cards.slice(0, cnt)
-    const tmpSelectedSum = tmpSelected.reduce((acc, n) => acc + n, 0)
+  cards = cards.sort((a, b) => b - a);
+  const tmpSelected = cards.slice(0, cnt);
+  const tmpSelectedSum = tmpSelected.reduce((acc, n) => acc + n, 0);
 
-    if(tmpSelectedSum % 2 === 0) {
-        return tmpSelectedSum
-    }
+  if (tmpSelectedSum % 2 === 0) {
+    return tmpSelectedSum;
+  }
 
-    while(cnt < cards.length) {
-        if(cards[cnt] % 2 === 1) {
-        // 剩余最大为奇数
-            for(let i = tmpSelected.length - 1; i >= 0; i--) {
-                if(tmpSelected[i] % 2 === 0) {
-                    return tmpSelectedSum - tmpSelected[i] + cards[cnt]
-                }
-            }
-        } else if(cards[cnt] % 2 === 0) {
-            for(let i = tmpSelected.length - 1; i >= 0; i--) {
-                if(tmpSelected[i] % 2 === 1) {
-                    return tmpSelectedSum - tmpSelected[i] + cards[cnt]
-                }
-            }
+  while (cnt < cards.length) {
+    if (cards[cnt] % 2 === 1) {
+      // 剩余最大为奇数
+      for (let i = tmpSelected.length - 1; i >= 0; i--) {
+        if (tmpSelected[i] % 2 === 0) {
+          return tmpSelectedSum - tmpSelected[i] + cards[cnt];
         }
-        cnt++
+      }
+    } else if (cards[cnt] % 2 === 0) {
+      for (let i = tmpSelected.length - 1; i >= 0; i--) {
+        if (tmpSelected[i] % 2 === 1) {
+          return tmpSelectedSum - tmpSelected[i] + cards[cnt];
+        }
+      }
     }
-    return 0
-};
-
+    cnt++;
+  }
+  return 0;
+}
 ```

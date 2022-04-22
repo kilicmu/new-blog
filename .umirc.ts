@@ -27,7 +27,7 @@ export default defineConfig({
         {
           path: '/block-chain',
           title: '区块链',
-        }
+        },
       ],
     },
     {
@@ -48,20 +48,16 @@ export default defineConfig({
     },
     {
       title: '读书笔记',
-      path: '/books'
+      path: '/books',
     },
     {
-      title: '刷题',
+      title: '算法',
       children: [
         {
           title: '刷题日记',
-          path: '/leetcode'
+          path: '/algorithm',
         },
-        {
-          title: '贪心系列',
-          path: '/leetcode/greedy'
-        }
-      ]
+      ],
     },
     {
       title: '俺',
@@ -74,5 +70,5 @@ export default defineConfig({
   ],
   favicon: './favicon.ico',
   base: '/new-blog',
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
 });
